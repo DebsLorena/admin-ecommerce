@@ -1,0 +1,17 @@
+.chart {
+  margin: 20px;
+  padding: 20px;
+  -webkit-box-shadow: 0 1rem 2rem rgba(132, 139, 200, 0.18);
+  box-shadow:  0 1rem 2rem rgba(132, 139, 200, 0.18);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.chart:hover {
+  box-shadow: none;
+}
+
+.chartTitle {
+  margin-bottom: 20px;
+  color: rgb(104, 104, 104);
+}

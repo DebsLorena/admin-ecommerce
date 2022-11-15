@@ -1,0 +1,21 @@
+.container{
+    width: 100vw;
+    display: flex;
+    padding-top: 10px;
+    background:  #f6f6f9;
+    overflow: hidden;
+    
+}
+
+@media screen and (max-width: 480px){
+    .container {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0;
+    }
+}; 
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}

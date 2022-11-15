@@ -1,0 +1,32 @@
+.bannerList{
+    flex: 4;
+    color: rgb(104, 104, 104);
+}
+
+.bannerListItem{
+    display: flex;
+    align-items: center;
+}
+
+.bannerListImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.bannerListEdit{
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: #7380ec;
+    color: white;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.bannerListDelete{
+    color: red;
+    cursor: pointer;
+}

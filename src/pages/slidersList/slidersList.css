@@ -1,0 +1,22 @@
+.sliderList{
+    flex: 4;
+    color: rgb(104, 104, 104);
+}
+
+.sliderListItem{
+    display: flex;
+    align-items: center;
+}
+
+.sliderListImg {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.sliderListDelete{
+    color: red;
+    cursor: pointer;
+}

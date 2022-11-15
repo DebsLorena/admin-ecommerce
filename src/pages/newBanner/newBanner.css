@@ -1,0 +1,40 @@
+.newBanner {
+  flex: 4;
+  color: rgb(104, 104, 104);
+}
+
+.addBannerForm {
+  margin-top: 10px;
+}
+
+.addBannerItem {
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.addBannerItem > label {
+  color: rgb(104, 104, 104);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.addBannerItem > input {
+  padding: 10px;
+}
+
+.addBannerItem > select {
+  padding: 10px;
+}
+
+.addBannerButton {
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: none;
+  border-radius: 10px;
+  background-color:  #7380ec;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}

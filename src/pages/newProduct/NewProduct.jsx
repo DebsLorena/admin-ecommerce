@@ -9,12 +9,14 @@ import {
 import app from "../../firebase";
 import { addProduct } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export default function NewProduct() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -66,6 +68,8 @@ export default function NewProduct() {
         });
       }
     );
+    alert('Product criado com sucesso!');
+    history.replace("/products");
   };
 
   return (

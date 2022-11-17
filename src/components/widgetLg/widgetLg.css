@@ -65,4 +65,20 @@
 
 }
 
+@media screen and (max-width: 480px){
+  .widgetLg {
+    width: 300px;
+  }
+  .widgetLgTable{
+    border-spacing: 10px;
+  }
+  .widgetLgUser{
+    width: 30px;
+  }
+  .widgetLgDate{
+    height: 100px;
+  }
+
+}; 
+
 

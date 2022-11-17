@@ -12,8 +12,25 @@ import {
   ExitToApp
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { logout } from "../../redux/apiCalls";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
 
 export default function Sidebar() {
+
+  const [username, setUsername] = useState("");
+  const history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault()
+      logout(dispatch, {username});
+      history.replaceState("/login");
+  }
+  
+
+
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -78,7 +95,7 @@ export default function Sidebar() {
               Banner
             </li>
             <li className="sidebarListItem">
-              <ExitToApp className="sidebarIcon" />
+              <ExitToApp  className="sidebarIcon" onClick={handleClick} />
               Sair
             </li>
           </ul>

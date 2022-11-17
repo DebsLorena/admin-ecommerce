@@ -63,7 +63,7 @@ function App() {
               <Route path="/banners">
                 <BannerList />
               </Route>
-              <Route path="/newbanner">
+              <Route path="/newBanner">
                 <NewBanner />
               </Route>
             </div>

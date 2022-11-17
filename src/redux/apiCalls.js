@@ -1,4 +1,4 @@
-import { loginFailure, loginStart, loginSuccess } from "./userRedux";
+import { loginFailure, loginStart, loginSuccess, logoutSucess } from "./userRedux";
 import { publicRequest, userRequest } from "../requestMethods";
 import {
     getProductFailure, getProductStart, getProductSuccess, deleteProductFailure, deleteProductStart, deleteProductSuccess, updateProductFailure, updateProductStart, updateProductSuccess, addProductFailure, addProductStart, addProductSuccess
@@ -29,6 +29,13 @@ export const login = async (dispatch, user) => {
     }
 };
 
+//LOGOUT
+export const logout = async (dispatch, user) => {
+    try {
+        const res = await publicRequest.post("/auth/logout", user);
+        dispatch(logoutSucess(res.data));
+    } catch (err) {}
+};
 
 //PRODUCTS
 export const getProducts = async (dispatch) => {
@@ -45,7 +52,7 @@ export const deleteProduct = async (id, dispatch) => {
     dispatch(deleteProductStart());
     try {
         const res = await userRequest.delete(`/products/${id}`);
-        dispatch(deleteProductSuccess(id));
+        dispatch(deleteProductSuccess(res.data));
     } catch (err) {
         dispatch(deleteProductFailure());
     }
@@ -86,7 +93,7 @@ export const deleteUser = async (id, dispatch) => {
     dispatch(deleteUserStart());
     try {
         const res = await userRequest.delete(`/users/${id}`);
-        dispatch(deleteUserSuccess(id));
+        dispatch(deleteUserSuccess(res.data));
     } catch (err) {
         dispatch(deleteUserFailure());
     }
@@ -128,7 +135,7 @@ export const deleteSlider = async (id, dispatch) => {
     dispatch(deleteSliderStart());
     try {
         const res = await userRequest.delete(`/sliders/${id}`);
-        dispatch(deleteSliderSuccess(id));
+        dispatch(deleteSliderSuccess(res.data));
     } catch (err) {
         dispatch(deleteSliderFailure());
     }
@@ -160,7 +167,7 @@ export const deleteBanner = async (id, dispatch) => {
     dispatch(deleteBannerStart());
     try {
         const res = await userRequest.delete(`/banners/${id}`);
-        dispatch(deleteBannerSuccess(id));
+        dispatch(deleteBannerSuccess(res.data));
     } catch (err) {
         dispatch(deleteBannerFailure());
     }

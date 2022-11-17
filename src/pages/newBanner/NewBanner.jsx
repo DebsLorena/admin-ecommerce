@@ -9,12 +9,14 @@ import {
 import app from "../../firebase";
 import { addBanner } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export default function NewBanner() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -66,6 +68,8 @@ export default function NewBanner() {
         });
       }
     );
+    alert('Banner criado com sucesso!');
+    history.replace("/banners");
   };
 
   return (
@@ -82,7 +86,7 @@ export default function NewBanner() {
         </div>
         <div className="addBannerItem">
           <label>Título</label>
-          <input
+          <input maxLength={15}
             name="title"
             type="text"
             placeholder="50% off"
@@ -91,7 +95,10 @@ export default function NewBanner() {
         </div>
         <div className="addBannerItem">
           <label>Categorias</label>
-          <input type="text" placeholder="papelaria" onChange={handleCat} />
+          <input pattern="(a-z)+)"
+          type="text" 
+          placeholder="papelaria" 
+          onChange={handleCat} />
         </div>
         <button onClick={handleClick} className="addBannerButton">
           Criar

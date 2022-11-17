@@ -4,12 +4,14 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL} from "firebase/s
 import app from "../../firebase";
 import { addSlider } from "../../redux/apiCalls";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export default function NewSlider() {
   const [inputs, setInputs] = useState({});
   const [file, setFile] = useState(null);
   const [cat, setCat] = useState([]);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleChange = (e) => {
     setInputs((prev) => {
@@ -61,6 +63,8 @@ export default function NewSlider() {
         });
       }
     );
+    alert('Slider criado com sucesso!');
+    history.replace("/sliders");
   };
 
   return (
@@ -77,7 +81,7 @@ export default function NewSlider() {
         </div>
         <div className="addSliderItem">
           <label>Título</label>
-          <input
+          <input maxLength={20}
             name="title"
             type="text"
             placeholder="Canetas com 50% OFF"
@@ -86,7 +90,7 @@ export default function NewSlider() {
         </div>
         <div className="addSliderItem">
           <label>Descrição</label>
-          <input
+          <input maxLength={35}
             name="desc"
             type="text"
             placeholder="Aproveite as nossas ofertas"
@@ -94,8 +98,20 @@ export default function NewSlider() {
           />
         </div>
         <div className="addSliderItem">
+          <label>Cor de fundo</label>
+          <input maxLength={6}
+            name="bg"
+            type="text"
+            placeholder="7372B4"
+            onChange={handleChange}
+          />
+        </div>
+        <div className="addSliderItem">
           <label>Categorias</label>
-          <input type="text" placeholder="Escrita" onChange={handleCat} />
+          <input pattern="(a-z)+)"
+          type="text" 
+          placeholder="escrita" 
+          onChange={handleCat} />
         </div>
         <button onClick={handleClick} className="addSliderButton">
           Criar

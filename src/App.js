@@ -15,6 +15,7 @@ import NewSlider from "./pages/newSlider/NewSlider";
 import SlidersList from "./pages/slidersList/SlidersList";
 import BannerList from "./pages/bannerList/BannerList";
 import NewBanner from "./pages/newBanner/NewBanner";
+import Newsletter from "./pages/newsletterList/NewslettersList";
 
 
 function App() {
@@ -65,6 +66,9 @@ function App() {
               </Route>
               <Route path="/newBanner">
                 <NewBanner />
+              </Route>
+              <Route path="/newsletter">
+                <Newsletter />
               </Route>
             </div>
           </>

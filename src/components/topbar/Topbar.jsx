@@ -20,6 +20,7 @@ export default function Topbar() {
         <li><Link to="/newSlider">Novo Slider</Link></li>
         <li><Link to="/banners">Banners</Link></li>
         <li><Link to="/newBanner">Novo Banner</Link></li>
+        <li><Link to="/newsletter">Newsletter</Link></li>
         </ul>
         </div>
       </div>

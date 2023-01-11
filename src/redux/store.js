@@ -4,6 +4,7 @@ import productReducer from "./productRedux";
 import sliderReducer from "./sliderRedux";
 import bannerReducer from "./bannerRedux";
 import userListReducer from "./userListRedux";
+import newsletterRedux from "./newsletterRedux";
 import {
     persistStore,
     persistReducer,
@@ -28,7 +29,9 @@ const rootReducer = combineReducers({
     slider: sliderReducer,
     banner: bannerReducer,
     userList: userListReducer,
+    newsletter: newsletterRedux
 });
+
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 

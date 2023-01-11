@@ -16,8 +16,10 @@ import {
     getBannerFailure, getBannerStart, getBannerSuccess, deleteBannerFailure, deleteBannerStart, deleteBannerSuccess, addBannerFailure, addBannerStart, addBannerSuccess
 } from "./bannerRedux";
 
+import {
+    getNewsletterFailure, getNewsletterStart, getNewsletterSuccess, deleteNewsletterFailure, deleteNewsletterStart, deleteNewsletterSuccess } from "./newsletterRedux";
 
-//LOGIN
+    //LOGIN
 
 export const login = async (dispatch, user) => {
     dispatch(loginStart());
@@ -112,7 +114,7 @@ export const updateUser = async (id, user, dispatch) => {
 export const addUser = async (user, dispatch) => {
     dispatch(addUserStart());
     try {
-        const res = await userRequest.post(`/users`, user);
+        const res = await userRequest.post(`/auth/register`, user);
         dispatch(addUserSuccess(res.data));
     } catch (err) {
         dispatch(addUserFailure());
@@ -182,3 +184,26 @@ export const addBanner = async (banner, dispatch) => {
         dispatch(addBannerFailure());
     }
 };
+
+
+//NEWSLETTER
+export const getNewsletter = async (dispatch) => {
+    dispatch(getNewsletterStart());
+    try {
+        const res = await publicRequest.get("/newsletter");
+        dispatch(getNewsletterSuccess(res.data));
+    } catch (err) {
+        dispatch(getNewsletterFailure());
+    }
+};
+
+export const deleteNewsletter = async (id, dispatch) => {
+    dispatch(deleteNewsletterStart());
+    try {
+        const res = await userRequest.delete(`/newsletter/${id}`);
+        dispatch(deleteNewsletterSuccess(res.data));
+    } catch (err) {
+        dispatch(deleteNewsletterFailure());
+    }
+};
+

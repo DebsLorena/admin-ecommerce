@@ -77,23 +77,29 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
           <ul className="sidebarList">
+          <Link to="/newsletter">
             <li className="sidebarListItem">
               <MailOutline className="sidebarIcon" />
               Newsletter
-              </li>
+            </li>
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
           <ul className="sidebarList">
+          <Link to="/sliders">
             <li className="sidebarListItem">
               <ViewCarousel className="sidebarIcon" />
               Slider
             </li>
+          </Link>
+          <Link to="/banners">
             <li className="sidebarListItem">
               <AddToPhotos className="sidebarIcon" />
               Banner
             </li>
+          </Link>
             <li className="sidebarListItem">
               <ExitToApp  className="sidebarIcon" onClick={handleClick} />
               Sair

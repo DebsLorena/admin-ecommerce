@@ -1,49 +1,42 @@
-import "./userList.css";
+import "./newslettersList.css";
 import { DataGrid } from "@material-ui/data-grid";
 import { DeleteOutline } from "@material-ui/icons";
-import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteUser, getUsers } from "../../redux/apiCalls";
+import { deleteNewsletter, getNewsletter } from "../../redux/apiCalls";
 
-export default function UserList() {
+export default function NewsletterList() {
   const dispatch = useDispatch();
-  const users = useSelector((state) => state.user.users);
-console.log(users)
+  const newsletters = useSelector((state) => state.newsletter.newsletters);
+
   useEffect(() => {
-    getUsers(dispatch);
+    getNewsletter(dispatch);
   }, [dispatch]);
 
   const handleDelete = (id) => {
-    deleteUser(id, dispatch);
+    deleteNewsletter(id, dispatch);
   };
 
   const columns = [
     { field: "_id", headerName: "ID", width: 220 },
     {
-      field: "user",
-      headerName: "Usuários",
+      field: "email",
+      headerName: "Newsletters",
       width: 200,
       renderCell: (params) => {
         return (
-          <div className="userListItem">
-            <img className="userListImg" src={params.row.img} alt="" />
-            {params.row.title}
+          <div className="newsletterListItem">
+            {params.row.email}
           </div>
         );
       },
     },
-    { field: "inStock", headerName: "Stock", width: 200 },
-    { field: "price", headerName: "Preço", width: 160 }, 
     { field: "action", headerName: "Ação", width: 150, 
       renderCell: (params) => {
         return (
           <>
-            <Link to={"/user/" + params.row._id}>
-              <button className="userListEdit">Editar</button>
-            </Link>
             <DeleteOutline
-              className="userListDelete"
+              className="newsletterListDelete"
               onClick={() => handleDelete(params.row._id)}
             />
           </>
@@ -53,16 +46,15 @@ console.log(users)
   ];
 
   return (
-    <div className="userList"> teste
-
-      {/* <DataGrid
-        rows={users}
+    <div className="newsletterList">
+        <DataGrid
+        rows={newsletters}
         disableSelectionOnClick
         columns={columns}
         getRowId={(row) => row._id}
         pageSize={100}
         checkboxSelection
-      /> */}
+      /> 
     </div>
   );
 }
